@@ -5,7 +5,7 @@ ECMAScript 2015 라고도 알려진 ECMAScript 6은 ECMAScript의 표준 중 가
 
 ECMAScript 6 언어의 전체 사양은 [ES6 표준](http://www.ecma-international.org/ecma-262/6.0/)을 참조하자.
 
-ES6은 아래의 새로운 기능을 포함하고 있다.
+ES6는 아래의 새로운 기능을 포함하고 있다.
 - [arrows](#arrows)
 - [classes](#classes)
 - [enhanced object literals](#enhanced-object-literals)
