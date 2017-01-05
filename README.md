@@ -556,8 +556,8 @@ Object.assign(Point, { origin: new Point(0,0) })
 
 더보기: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [Array.of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of), [Array.prototype.copyWithin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin), [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
-### Binary and Octal Literals
-Two new numeric literal forms are added for binary (`b`) and octal (`o`).
+### 2진수와 8진수
+이진수(`b`)와 8진수(`o`)를 위해 숫자 리터럴 두 개 추가되었다.
 
 ```JavaScript
 0b111110111 === 503 // true
