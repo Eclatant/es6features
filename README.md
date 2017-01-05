@@ -30,22 +30,22 @@ ES6는 아래의 새로운 기능을 포함하고 있다.
 
 ## ECMAScript 6 Features
 
-### Arrows
-Arrows are a function shorthand using the `=>` syntax.  They are syntactically similar to the related feature in C#, Java 8 and CoffeeScript.  They support both statement block bodies as well as expression bodies which return the value of the expression.  Unlike functions, arrows share the same lexical `this` as their surrounding code.
+### 화살표 함수 
+화살표 함수는 `=>` 문법을 이용해서 함수를 짧게 표현한다. C#, 자바8, 커피스크립트과 비슷한 문법을 사용한다. 함수 표현식 본문 뿐만아니라 명령문 블록 본문도 지원한다. 일반 함수와 달리 화살표 함수는 자신을 둘러싼 어휘적 this를 사용한다.
 
 ```JavaScript
-// Expression bodies
+// 함수 표현식 본문
 var odds = evens.map(v => v + 1);
 var nums = evens.map((v, i) => v + i);
 var pairs = evens.map(v => ({even: v, odd: v + 1}));
 
-// Statement bodies
+// 명령문 본문
 nums.forEach(v => {
   if (v % 5 === 0)
     fives.push(v);
 });
 
-// Lexical this
+// 어휘적 this
 var bob = {
   _name: "Bob",
   _friends: [],
