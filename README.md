@@ -30,7 +30,7 @@ ES6는 아래의 새로운 기능을 포함하고 있다.
 
 ## ECMAScript 6 Features
 
-### 화살표 함수 
+### 화살표 함수
 화살표 함수는 `=>` 문법을 이용해서 함수를 짧게 표현한다. C#, 자바8, 커피스크립트과 비슷한 문법을 사용한다. 함수 표현식 본문 뿐만아니라 명령문 블록 본문도 지원한다. 일반 함수와 달리 화살표 함수는 자신을 둘러싼 어휘적 this를 사용한다.
 
 ```JavaScript
@@ -89,21 +89,21 @@ class SkinnedMesh extends THREE.Mesh {
 
 More info: [MDN Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
 
-### Enhanced Object Literals
-Object literals are extended to support setting the prototype at construction, shorthand for `foo: foo` assignments, defining methods, making super calls, and computing property names with expressions.  Together, these also bring object literals and class declarations closer together, and let object-based design benefit from some of the same conveniences.
+### 개선된 객체 리터럴
+객체 리터럴은 객체 생성시 프로토타입을 설정할 수 있다. `foo: foo` 형식으로 할당할 때는 `foo`만 적어도 된다. 메소드를 정의할 수 있고 슈퍼를 호출할 수 있다. 함수식으로 프로퍼티 이름 계산이 가능하다. 또한 객체 리터럴과 클래스 정의는 비슷하기 때문에 객체기반 설계의 장점을 얻을 수 있다.
 
 ```JavaScript
 var obj = {
     // __proto__
     __proto__: theProtoObj,
-    // Shorthand for ‘handler: handler’
+    // ‘handler: handler’의 간단한 표현
     handler,
-    // Methods
+    // 메쏘드
     toString() {
-     // Super calls
-     return "d " + super.toString();
+      // 슈퍼 호출
+      return "d " + super.toString();
     },
-    // Computed (dynamic) property names
+    // (동적으로) 계산된 프로퍼티 이름
     [ 'prop_' + (() => 42)() ]: 42
 };
 ```
