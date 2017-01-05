@@ -110,18 +110,18 @@ var obj = {
 
 More info: [MDN Grammar and types: Object literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals)
 
-### Template Strings
-Template strings provide syntactic sugar for constructing strings.  This is similar to string interpolation features in Perl, Python and more.  Optionally, a tag can be added to allow the string construction to be customized, avoiding injection attacks or constructing higher level data structures from string contents.
+### 템플릿 문자열
+템플릿 문자열을 이용하면 손쉽게 문자열을 만들수 있다. 펄, 파이썬의 문자열 인터폴레이션 기능과 비슷하다. 인젝션 공격을 차단하거나 고수준 데이터 구조를 유지하는 문자열을 만들기 위해 태그를 추가하여 만들 수 있다.
 
 ```JavaScript
-// Basic literal string creation
+// 기본적인 리터럴 문자열 생성
 `In JavaScript '\n' is a line-feed.`
 
-// Multiline strings
+// 여러 줄 문자열
 `In JavaScript this is
  not legal.`
 
-// String interpolation
+// 문자열 인터폴레이션
 var name = "Bob", time = "today";
 `Hello ${name}, how are you ${time}?`
 
