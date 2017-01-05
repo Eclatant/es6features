@@ -526,8 +526,8 @@ arr[1] = 12;
 arr.length == 2
 ```
 
-### Math + Number + String + Array + Object APIs
-Many new library additions, including core Math libraries, Array conversion helpers, String helpers, and Object.assign for copying.
+### 수학, 숫자, 문자열, 배열, 객체 API
+수학 라이브러리, 배열과 문자열 헬퍼 함수, 객체 복사를 위한 Object.assign() 함수가 있다.
 
 ```JavaScript
 Number.EPSILON
@@ -541,20 +541,20 @@ Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
 "abcde".includes("cd") // true
 "abc".repeat(3) // "abcabcabc"
 
-Array.from(document.querySelectorAll('*')) // Returns a real Array
-Array.of(1, 2, 3) // Similar to new Array(...), but without special one-arg behavior
+Array.from(document.querySelectorAll('*')) // 진짜 배열 반환
+Array.of(1, 2, 3) // new Array(..)와 비슷하지만 인자가 여러개다. (new Array()는 크기 인자를 1개만 받음)
 [0, 0, 0].fill(7, 1) // [0,7,7]
 [1, 2, 3].find(x => x == 3) // 3
 [1, 2, 3].findIndex(x => x == 2) // 1
 [1, 2, 3, 4, 5].copyWithin(3, 0) // [1, 2, 3, 1, 2]
-["a", "b", "c"].entries() // iterator [0, "a"], [1,"b"], [2,"c"]
-["a", "b", "c"].keys() // iterator 0, 1, 2
-["a", "b", "c"].values() // iterator "a", "b", "c"
+["a", "b", "c"].entries() // [0, "a"], [1,"b"], [2,"c"] 반복자
+["a", "b", "c"].keys() // 0, 1, 2 반복자
+["a", "b", "c"].values() // "a", "b", "c" 반복자
 
 Object.assign(Point, { origin: new Point(0,0) })
 ```
 
-More MDN info: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [Array.of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of), [Array.prototype.copyWithin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin), [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+더보기: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [Array.of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of), [Array.prototype.copyWithin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin), [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
 ### Binary and Octal Literals
 Two new numeric literal forms are added for binary (`b`) and octal (`o`).
