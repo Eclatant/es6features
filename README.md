@@ -30,22 +30,22 @@ ES6는 아래의 새로운 기능을 포함하고 있다.
 
 ## ECMAScript 6 Features
 
-### Arrows
-Arrows are a function shorthand using the `=>` syntax.  They are syntactically similar to the related feature in C#, Java 8 and CoffeeScript.  They support both statement block bodies as well as expression bodies which return the value of the expression.  Unlike functions, arrows share the same lexical `this` as their surrounding code.
+### 화살표 함수
+화살표 함수는 `=>` 문법을 이용해서 함수를 짧게 표현한다. C#, 자바8, 커피스크립트와 비슷한 문법을 사용한다. 함수 표현식 본문 뿐만아니라 명령문 블록 본문도 지원한다. 일반 함수와 달리 화살표 함수는 자신을 둘러싼 어휘적 this를 사용한다.
 
 ```JavaScript
-// Expression bodies
+// 함수 표현식 본문
 var odds = evens.map(v => v + 1);
 var nums = evens.map((v, i) => v + i);
 var pairs = evens.map(v => ({even: v, odd: v + 1}));
 
-// Statement bodies
+// 명령문 본문
 nums.forEach(v => {
   if (v % 5 === 0)
     fives.push(v);
 });
 
-// Lexical this
+// 어휘적 this
 var bob = {
   _name: "Bob",
   _friends: [],
@@ -56,7 +56,7 @@ var bob = {
 }
 ```
 
-More info: [MDN Arrow Functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+더보기: [MDN Arrow Functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ### Classes
 ES6 classes are a simple sugar over the prototype-based OO pattern.  Having a single convenient declarative form makes class patterns easier to use, and encourages interoperability.  Classes support prototype-based inheritance, super calls, instance and static methods and constructors.
@@ -89,39 +89,39 @@ class SkinnedMesh extends THREE.Mesh {
 
 More info: [MDN Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
 
-### Enhanced Object Literals
-Object literals are extended to support setting the prototype at construction, shorthand for `foo: foo` assignments, defining methods, making super calls, and computing property names with expressions.  Together, these also bring object literals and class declarations closer together, and let object-based design benefit from some of the same conveniences.
+### 개선된 객체 리터럴
+객체 리터럴은 객체 생성시 프로토타입을 설정할 수 있다. `foo: foo` 형식으로 할당할 때는 `foo`만 적어도 된다. 메소드를 정의할 수 있고 슈퍼를 호출할 수 있다. 함수식으로 프로퍼티 이름 계산이 가능하다. 또한 객체 리터럴과 클래스 정의는 비슷하기 때문에 객체기반 설계의 장점을 얻을 수 있다.
 
 ```JavaScript
 var obj = {
     // __proto__
     __proto__: theProtoObj,
-    // Shorthand for ‘handler: handler’
+    // ‘handler: handler’의 간단한 표현
     handler,
-    // Methods
+    // 메쏘드
     toString() {
-     // Super calls
-     return "d " + super.toString();
+      // 슈퍼 호출
+      return "d " + super.toString();
     },
-    // Computed (dynamic) property names
+    // (동적으로) 계산된 프로퍼티 이름
     [ 'prop_' + (() => 42)() ]: 42
 };
 ```
 
-More info: [MDN Grammar and types: Object literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals)
+더보기: [MDN Grammar and types: Object literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals)
 
-### Template Strings
-Template strings provide syntactic sugar for constructing strings.  This is similar to string interpolation features in Perl, Python and more.  Optionally, a tag can be added to allow the string construction to be customized, avoiding injection attacks or constructing higher level data structures from string contents.
+### 템플릿 문자열
+템플릿 문자열을 이용하면 손쉽게 문자열을 만들수 있다. 펄, 파이썬의 문자열 인터폴레이션 기능과 비슷하다. 인젝션 공격을 차단하거나 고수준 데이터 구조를 유지하는 문자열을 만들기 위해 태그를 추가하여 만들 수 있다.
 
 ```JavaScript
-// Basic literal string creation
+// 기본적인 리터럴 문자열 생성
 `In JavaScript '\n' is a line-feed.`
 
-// Multiline strings
+// 여러 줄 문자열
 `In JavaScript this is
  not legal.`
 
-// String interpolation
+// 문자열 인터폴레이션
 var name = "Bob", time = "today";
 `Hello ${name}, how are you ${time}?`
 
@@ -133,7 +133,7 @@ POST`http://foo.org/bar?a=${a}&b=${b}
        "bar": ${bar}}`(myOnReadyStateChangeHandler);
 ```
 
-More info: [MDN Template Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings)
+더보기: [MDN Template Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings)
 
 ### Destructuring
 Destructuring allows binding using pattern matching, with support for matching arrays and objects.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
@@ -167,19 +167,19 @@ a === 1;
 
 More info: [MDN Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
-### Default + Rest + Spread
-Callee-evaluated default parameter values.  Turn an array into consecutive arguments in a function call.  Bind trailing parameters to an array.  Rest replaces the need for `arguments` and addresses common cases more directly.
+### 파라메터 기본값, 나머지 파라매터, 펼침 연산자
+함수를 정의할 때 파라매터의 기본값을 지정할 수 있다. 나머지 파라매터는 배열로 전달된다. 그리고 arguments 대신 사용한다. 함수를 호출할 때 펼침 연산자를 이용하면 배열의 각 배열 요소를 파라매터로 전달할 수 있다.
 
 ```JavaScript
 function f(x, y=12) {
-  // y is 12 if not passed (or passed as undefined)
+  // y 값이 전달되지 않았거나 undefined로 넘어올 경우 y값은 12다.
   return x + y;
 }
 f(3) == 15
 ```
 ```JavaScript
 function f(x, ...y) {
-  // y is an Array
+  // y는 배열이다.
   return x * y.length;
 }
 f(3, "hello", true) == 6
@@ -188,11 +188,11 @@ f(3, "hello", true) == 6
 function f(x, y, z) {
   return x + y + z;
 }
-// Pass each elem of array as argument
+// 배열의 각 요소를 매개변수로 전달 f(1,2,3)
 f(...[1,2,3]) == 6
 ```
 
-More MDN info: [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+더보기: [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 ### Let + Const
 Block-scoped binding constructs.  `let` is the new `var`.  `const` is single-assignment.  Static restrictions prevent use before assignment.
@@ -293,29 +293,29 @@ interface Generator extends Iterator {
 
 More info: [MDN Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
-### Unicode
-Non-breaking additions to support full Unicode, including new Unicode literal form in strings and new RegExp `u` mode to handle code points, as well as new APIs to process strings at the 21bit code points level.  These additions support building global apps in JavaScript.
+### 유니코드
+완전한 유니코드를 지원한다. 코드 포인트를 처리할 수 있는 유니코드 리터럴과 정규표현식의 `u` 옵션이 있다. 21비트 코드 포인트 수준에서 문자열을 처리하는 새로운 API도 있다. 이러한 추가 기능으로 글로벌 어플리케이션 개발을 지원한다.
 
 ```JavaScript
-// same as ES5.1
+// ES5.1과 같다
 "𠮷".length == 2
 
-// new RegExp behaviour, opt-in ‘u’
+// 정규 표현식에서 'u' 옵션을 사용한다
 "𠮷".match(/./u)[0].length == 2
 
-// new form
+// 새로운 형식
 "\u{20BB7}"=="𠮷"=="\uD842\uDFB7"
 
-// new String ops
+// 새로운 문자열 옵션
 "𠮷".codePointAt(0) == 0x20BB7
 
-// for-of iterates code points
+// for-of 반복자
 for(var c of "𠮷") {
   console.log(c);
 }
 ```
 
-More info: [MDN RegExp.prototype.unicode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)
+더보기: [MDN RegExp.prototype.unicode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)
 
 ### Modules
 Language-level support for modules for component definition.  Codifies patterns from popular JavaScript module loaders (AMD, CommonJS). Runtime behaviour defined by a host-defined default loader.  Implicitly async model – no code executes until requested modules are available and processed.
@@ -526,8 +526,8 @@ arr[1] = 12;
 arr.length == 2
 ```
 
-### Math + Number + String + Array + Object APIs
-Many new library additions, including core Math libraries, Array conversion helpers, String helpers, and Object.assign for copying.
+### 수학, 숫자, 문자열, 배열, 객체 API
+수학 라이브러리, 배열과 문자열 헬퍼 함수, 객체 복사를 위한 Object.assign() 함수가 있다.
 
 ```JavaScript
 Number.EPSILON
@@ -541,23 +541,23 @@ Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
 "abcde".includes("cd") // true
 "abc".repeat(3) // "abcabcabc"
 
-Array.from(document.querySelectorAll('*')) // Returns a real Array
-Array.of(1, 2, 3) // Similar to new Array(...), but without special one-arg behavior
+Array.from(document.querySelectorAll('*')) // 진짜 배열 반환
+Array.of(1, 2, 3) // new Array(..)와 비슷하지만 인자가 여러개다. (new Array()는 크기 인자를 1개만 받음)
 [0, 0, 0].fill(7, 1) // [0,7,7]
 [1, 2, 3].find(x => x == 3) // 3
 [1, 2, 3].findIndex(x => x == 2) // 1
 [1, 2, 3, 4, 5].copyWithin(3, 0) // [1, 2, 3, 1, 2]
-["a", "b", "c"].entries() // iterator [0, "a"], [1,"b"], [2,"c"]
-["a", "b", "c"].keys() // iterator 0, 1, 2
-["a", "b", "c"].values() // iterator "a", "b", "c"
+["a", "b", "c"].entries() // [0, "a"], [1,"b"], [2,"c"] 반복자
+["a", "b", "c"].keys() // 0, 1, 2 반복자
+["a", "b", "c"].values() // "a", "b", "c" 반복자
 
 Object.assign(Point, { origin: new Point(0,0) })
 ```
 
-More MDN info: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [Array.of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of), [Array.prototype.copyWithin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin), [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+더보기: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [Array.of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of), [Array.prototype.copyWithin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin), [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
-### Binary and Octal Literals
-Two new numeric literal forms are added for binary (`b`) and octal (`o`).
+### 2진수와 8진수
+이진수(`b`)와 8진수(`o`)를 위해 숫자 리터럴 두 개 추가되었다.
 
 ```JavaScript
 0b111110111 === 503 // true
