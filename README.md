@@ -59,7 +59,7 @@ var bob = {
 More info: [MDN Arrow Functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ### Classes
-ES6 classes are a simple sugar over the prototype-based OO pattern.  Having a single convenient declarative form makes class patterns easier to use, and encourages interoperability.  Classes support prototype-based inheritance, super calls, instance and static methods and constructors.
+ES6 클래스는 프로토타입-기반 OO 패턴이다. 편리한 선언적 형식을 사용하면 클래스 패턴을 쉽게 만들 수 있으며, 이전 버젼과 상호 운영성이 있습니다. 클래스는 프로토타입 기반 상속, 슈퍼 호출, 인스턴스와 정적 메소드 그리고 생성자를 제공한다.
 
 ```JavaScript
 class SkinnedMesh extends THREE.Mesh {
@@ -87,7 +87,7 @@ class SkinnedMesh extends THREE.Mesh {
 }
 ```
 
-More info: [MDN Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
+더보기: [MDN Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
 
 ### Enhanced Object Literals
 Object literals are extended to support setting the prototype at construction, shorthand for `foo: foo` assignments, defining methods, making super calls, and computing property names with expressions.  Together, these also bring object literals and class declarations closer together, and let object-based design benefit from some of the same conveniences.
