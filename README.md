@@ -136,36 +136,36 @@ POST`http://foo.org/bar?a=${a}&b=${b}
 More info: [MDN Template Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings)
 
 ### Destructuring
-Destructuring allows binding using pattern matching, with support for matching arrays and objects.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
+Destructuring은 패턴 매칭을 사용하여 바인딩 시키며, 배열과 객체를 매칭하는데 사용된다. Destructuring은 표준 객체인 `foo["bar"]`를 찾는 것과 비슷하며, 값을 찾을 수 없다면, `undefined`로 할당된다.
 
 ```JavaScript
-// list matching
+// 배열 매칭
 var [a, , b] = [1,2,3];
 
-// object matching
+// 객체 매칭
 var { op: a, lhs: { op: b }, rhs: c }
        = getASTNode()
 
-// object matching shorthand
-// binds `op`, `lhs` and `rhs` in scope
+// 짧은 표현으로 객체를 매칭
+// `op`, `lhs`, `rhs` 로 바인딩 된다.
 var {op, lhs, rhs} = getASTNode()
 
-// Can be used in parameter position
+// 매개변수에서도 사용 가능
 function g({name: x}) {
   console.log(x);
 }
 g({name: 5})
 
-// Fail-soft destructuring
+// destructuring 실패(매칭값이 없을 경우)
 var [a] = [];
 a === undefined;
 
-// Fail-soft destructuring with defaults
+// destructuring 실패(매칭값이 없지만, 기본값이 설정된 경우)
 var [a = 1] = [];
 a === 1;
 ```
 
-More info: [MDN Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+더보기: [MDN Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ### Default + Rest + Spread
 Callee-evaluated default parameter values.  Turn an array into consecutive arguments in a function call.  Bind trailing parameters to an array.  Rest replaces the need for `arguments` and addresses common cases more directly.
