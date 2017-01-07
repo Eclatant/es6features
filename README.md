@@ -356,30 +356,30 @@ alert("2π = " + ln(e)*pi*2);
 더보기: [import statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), [export statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 
 ### Module Loaders
-Module loaders support:
-- Dynamic loading
-- State isolation
-- Global namespace isolation
+모듈 로더 지원:
+- 동적 로딩
+- 상태 분리
+- 전역 네임스페이스 분리
 - Compilation hooks
 - Nested virtualization
 
-The default module loader can be configured, and new loaders can be constructed to evaluate and load code in isolated or constrained contexts.
+기본 모듈 로더를 설정 할 수 있으며, 새로운 로더를 제한되거나, 격리된 컨텍스트에서 코드를 실행하거나, 평가 할 수 있도록 구성할 수 있습니다.
 
 ```JavaScript
-// Dynamic loading – ‘System’ is default loader
+// 동적 로딩 – ‘System’ 은 기본 로더이다.
 System.import('lib/math').then(function(m) {
   alert("2π = " + m.sum(m.pi, m.pi));
 });
 
-// Create execution sandboxes – new Loaders
+// 실행 시키는 샌드 박스 생성 – 새로운 로더
 var loader = new Loader({
-  global: fixup(window) // replace ‘console.log’
+  global: fixup(window) // ‘console.log’ 로 교체
 });
 loader.eval("console.log('hello world!');");
 
-// Directly manipulate module cache
+// 직접 모듈 캐시 조작
 System.get('jquery');
-System.set('jquery', Module({$: $})); // WARNING: not yet finalized
+System.set('jquery', Module({$: $})); // 경고 : 아직 완료되지 않았다.
 ```
 
 ### Map + Set + WeakMap + WeakSet
