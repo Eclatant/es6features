@@ -585,13 +585,13 @@ var p = timeout(1000).then(() => {
 More info: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ### Reflect API
-Full reflection API exposing the runtime-level meta-operations on objects.  This is effectively the inverse of the Proxy API, and allows making calls corresponding to the same meta-operations as the proxy traps.  Especially useful for implementing proxies.
+완전한 reflection API는 런타임 단계에서 객체의 메타 작업을 보여준다. 실제로 Proxy API의 반대이며, 프록시 트랩과 동일한 메타작업을 하는 메서드 호출을 허용한다. 특히 프록시를 구현할 때 유용하다.
 
 ```JavaScript
-// No sample yet
+// 아직 예제가 준비되지 않았다.
 ```
 
-More info: [MDN Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
+더보기: [MDN Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 
 ### Tail Calls
 Calls in tail-position are guaranteed to not grow the stack unboundedly.  Makes recursive algorithms safe in the face of unbounded inputs.
