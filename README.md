@@ -195,26 +195,25 @@ f(...[1,2,3]) == 6
 More MDN info: [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 ### Let + Const
-Block-scoped binding constructs.  `let` is the new `var`.  `const` is single-assignment.  Static restrictions prevent use before assignment.
-
+`let, const`는 블록 단위 스코프 바인딩이다. `let`은 새로운 `var` 이며, `const`는 단일 할당입니다. 정적 제한은 할당전에 사용하지 못하게 제한합니다.
 
 ```JavaScript
 function f() {
   {
     let x;
     {
-      // okay, block scoped name
+      // okay, 블록 범위안에 선언
       const x = "sneaky";
-      // error, const
+      // const 재할당 에러
       x = "foo";
     }
-    // error, already declared in block
+    // 이미 블록 안에 선언 되있어서 에러
     let x = "inner";
   }
 }
 ```
 
-More MDN info: [let statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+더보기: [let statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
 ### Iterators + For..Of
 Iterator objects enable custom iteration like CLR IEnumerable or Java Iterable.  Generalize `for..in` to custom iterator-based iteration with `for..of`.  Don’t require realizing an array, enabling lazy design patterns like LINQ.
