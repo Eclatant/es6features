@@ -594,7 +594,7 @@ More info: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 더보기: [MDN Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 
 ### Tail Calls
-Calls in tail-position are guaranteed to not grow the stack unboundedly.  Makes recursive algorithms safe in the face of unbounded inputs.
+꼬리 위치에서 호출이 스택을 무한대로 생성되지 않게 보장해준다. 무제한 입력에도 재귀 알고리즘을 안전하게 해준다.
 
 ```JavaScript
 function factorial(n, acc = 1) {
@@ -603,7 +603,7 @@ function factorial(n, acc = 1) {
     return factorial(n - 1, n * acc);
 }
 
-// Stack overflow in most implementations today,
-// but safe on arbitrary inputs in ES6
+// 대부분 구현에서는 스택오버플로우가 발생한다.,
+// 그러나 임의 입력에도 ES6에서는 안전하다.
 factorial(100000)
 ```
