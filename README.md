@@ -59,7 +59,7 @@ var bob = {
 더보기: [MDN Arrow Functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ### Classes
-ES6 classes are a simple sugar over the prototype-based OO pattern.  Having a single convenient declarative form makes class patterns easier to use, and encourages interoperability.  Classes support prototype-based inheritance, super calls, instance and static methods and constructors.
+ES6 클래스는 프로토타입-기반 OO 패턴이다. 편리한 선언적 형식을 사용하면 클래스 패턴을 쉽게 만들 수 있으며, 이전 버젼과 상호 운영성이 있습니다. 클래스는 프로토타입 기반 상속, 슈퍼 호출, 인스턴스와 정적 메소드 그리고 생성자를 제공한다.
 
 ```JavaScript
 class SkinnedMesh extends THREE.Mesh {
@@ -87,7 +87,7 @@ class SkinnedMesh extends THREE.Mesh {
 }
 ```
 
-More info: [MDN Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
+더보기: [MDN Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
 
 ### 개선된 객체 리터럴
 객체 리터럴은 객체 생성시 프로토타입을 설정할 수 있다. `foo: foo` 형식으로 할당할 때는 `foo`만 적어도 된다. 메소드를 정의할 수 있고 슈퍼를 호출할 수 있다. 함수식으로 프로퍼티 이름 계산이 가능하다. 또한 객체 리터럴과 클래스 정의는 비슷하기 때문에 객체기반 설계의 장점을 얻을 수 있다.
@@ -136,36 +136,36 @@ POST`http://foo.org/bar?a=${a}&b=${b}
 더보기: [MDN Template Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings)
 
 ### Destructuring
-Destructuring allows binding using pattern matching, with support for matching arrays and objects.  Destructuring is fail-soft, similar to standard object lookup `foo["bar"]`, producing `undefined` values when not found.
+Destructuring은 패턴 매칭을 사용하여 바인딩 시키며, 배열과 객체를 매칭하는데 사용된다. Destructuring은 표준 객체인 `foo["bar"]`를 찾는 것과 비슷하며, 값을 찾을 수 없다면, `undefined`로 할당된다.
 
 ```JavaScript
-// list matching
+// 배열 매칭
 var [a, , b] = [1,2,3];
 
-// object matching
+// 객체 매칭
 var { op: a, lhs: { op: b }, rhs: c }
        = getASTNode()
 
-// object matching shorthand
-// binds `op`, `lhs` and `rhs` in scope
+// 짧은 표현으로 객체를 매칭
+// `op`, `lhs`, `rhs` 로 바인딩 된다.
 var {op, lhs, rhs} = getASTNode()
 
-// Can be used in parameter position
+// 매개변수에서도 사용 가능
 function g({name: x}) {
   console.log(x);
 }
 g({name: 5})
 
-// Fail-soft destructuring
+// destructuring 실패(매칭값이 없을 경우)
 var [a] = [];
 a === undefined;
 
-// Fail-soft destructuring with defaults
+// destructuring 실패(매칭값이 없지만, 기본값이 설정된 경우)
 var [a = 1] = [];
 a === 1;
 ```
 
-More info: [MDN Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+더보기: [MDN Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 ### 파라메터 기본값, 나머지 파라매터, 펼침 연산자
 함수를 정의할 때 파라매터의 기본값을 지정할 수 있다. 나머지 파라매터는 배열로 전달된다. 그리고 arguments 대신 사용한다. 함수를 호출할 때 펼침 연산자를 이용하면 배열의 각 배열 요소를 파라매터로 전달할 수 있다.
@@ -195,26 +195,25 @@ f(...[1,2,3]) == 6
 더보기: [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), [Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 ### Let + Const
-Block-scoped binding constructs.  `let` is the new `var`.  `const` is single-assignment.  Static restrictions prevent use before assignment.
-
+`let, const`는 블록 단위 스코프 바인딩이다. `let`은 새로운 `var` 이며, `const`는 단일 할당입니다. 정적 제한은 할당전에 사용하지 못하게 제한합니다.
 
 ```JavaScript
 function f() {
   {
     let x;
     {
-      // okay, block scoped name
+      // okay, 블록 범위안에 선언
       const x = "sneaky";
-      // error, const
+      // const 재할당 에러
       x = "foo";
     }
-    // error, already declared in block
+    // 이미 블록 안에 선언 되있어서 에러
     let x = "inner";
   }
 }
 ```
 
-More MDN info: [let statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+더보기: [let statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
 ### Iterators + For..Of
 Iterator objects enable custom iteration like CLR IEnumerable or Java Iterable.  Generalize `for..in` to custom iterator-based iteration with `for..of`.  Don’t require realizing an array, enabling lazy design patterns like LINQ.
@@ -318,7 +317,7 @@ for(var c of "𠮷") {
 더보기: [MDN RegExp.prototype.unicode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)
 
 ### Modules
-Language-level support for modules for component definition.  Codifies patterns from popular JavaScript module loaders (AMD, CommonJS). Runtime behaviour defined by a host-defined default loader.  Implicitly async model – no code executes until requested modules are available and processed.
+언어레벨에서 컴포넌트 정의를 위한 모듈을 제공한다. 유명한 자바스크립트 모듈 로더(AMD, CommonJS)에서 가져온 패턴이다. 호스트에 정의된 기본 로더로 런타임에 실행되는 것을 정의한다. 암시적 비동기 모델 - 요청된 모듈이 사용할 수 있고, 처리 될때까지 코드는 실행되지 않는다.
 
 ```JavaScript
 // lib/math.js
@@ -338,7 +337,7 @@ import {sum, pi} from "lib/math";
 alert("2π = " + sum(pi, pi));
 ```
 
-Some additional features include `export default` and `export *`:
+추가 기능으로 `export default` 와 `export *` 가 있다.
 
 ```JavaScript
 // lib/mathplusplus.js
@@ -354,33 +353,33 @@ import ln, {pi, e} from "lib/mathplusplus";
 alert("2π = " + ln(e)*pi*2);
 ```
 
-More MDN info: [import statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), [export statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
+더보기: [import statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), [export statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 
 ### Module Loaders
-Module loaders support:
-- Dynamic loading
-- State isolation
-- Global namespace isolation
+모듈 로더 지원:
+- 동적 로딩
+- 상태 분리
+- 전역 네임스페이스 분리
 - Compilation hooks
 - Nested virtualization
 
-The default module loader can be configured, and new loaders can be constructed to evaluate and load code in isolated or constrained contexts.
+기본 모듈 로더를 설정 할 수 있으며, 새로운 로더를 제한되거나, 격리된 컨텍스트에서 코드를 실행하거나, 평가 할 수 있도록 구성할 수 있습니다.
 
 ```JavaScript
-// Dynamic loading – ‘System’ is default loader
+// 동적 로딩 – ‘System’ 은 기본 로더이다.
 System.import('lib/math').then(function(m) {
   alert("2π = " + m.sum(m.pi, m.pi));
 });
 
-// Create execution sandboxes – new Loaders
+// 실행 시키는 샌드 박스 생성 – 새로운 로더
 var loader = new Loader({
-  global: fixup(window) // replace ‘console.log’
+  global: fixup(window) // ‘console.log’ 로 교체
 });
 loader.eval("console.log('hello world!');");
 
-// Directly manipulate module cache
+// 직접 모듈 캐시 조작
 System.get('jquery');
-System.set('jquery', Module({$: $})); // WARNING: not yet finalized
+System.set('jquery', Module({$: $})); // 경고 : 아직 완료되지 않았다.
 ```
 
 ### Map + Set + WeakMap + WeakSet
@@ -586,16 +585,16 @@ var p = timeout(1000).then(() => {
 More info: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ### Reflect API
-Full reflection API exposing the runtime-level meta-operations on objects.  This is effectively the inverse of the Proxy API, and allows making calls corresponding to the same meta-operations as the proxy traps.  Especially useful for implementing proxies.
+완전한 reflection API는 런타임 단계에서 객체의 메타 작업을 보여준다. 실제로 Proxy API의 반대이며, 프록시 트랩과 동일한 메타작업을 하는 메서드 호출을 허용한다. 특히 프록시를 구현할 때 유용하다.
 
 ```JavaScript
-// No sample yet
+// 아직 예제가 준비되지 않았다.
 ```
 
-More info: [MDN Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
+더보기: [MDN Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 
 ### Tail Calls
-Calls in tail-position are guaranteed to not grow the stack unboundedly.  Makes recursive algorithms safe in the face of unbounded inputs.
+꼬리 위치에서 호출이 스택을 무한대로 생성되지 않게 보장해준다. 무제한 입력에도 재귀 알고리즘을 안전하게 해준다.
 
 ```JavaScript
 function factorial(n, acc = 1) {
@@ -604,7 +603,7 @@ function factorial(n, acc = 1) {
     return factorial(n - 1, n * acc);
 }
 
-// Stack overflow in most implementations today,
-// but safe on arbitrary inputs in ES6
+// 대부분 구현에서는 스택오버플로우가 발생한다.,
+// 그러나 임의 입력에도 ES6에서는 안전하다.
 factorial(100000)
 ```
