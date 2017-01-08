@@ -257,10 +257,11 @@ interface Iterable {
 
 더보기: [MDN for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
-### Generators
-Generators simplify iterator-authoring using `function*` and `yield`.  A function declared as function* returns a Generator instance.  Generators are subtypes of iterators which include additional  `next` and `throw`.  These enable values to flow back into the generator, so `yield` is an expression form which returns a value (or throws).
+### 제너레이터
+제너레이터는 `function*` 와 `yield`를 사용하여 이터레이터 작성을 단순화 한다. function*로 정의된 함수는 제너레이터 인스턴스를 반환한다. 제너레이터는 `next` 와 `throw`를 포함하고 있는 이터레이터의 하위 유형이다.
+이것들은 값을 제너레이터로 다시 되돌릴 수 있게 해준다. 그래서 `yield`는 값을 반환하는 표현식이다.
 
-Note: Can also be used to enable ‘await’-like async programming, see also ES7 `await` proposal.
+참고: ‘await’와 같은 비동기 프로그래밍을 활성화하는 데 사용할 수 있다. ES7의 `await` 제안을 참조하자.
 
 ```JavaScript
 var fibonacci = {
@@ -276,14 +277,15 @@ var fibonacci = {
 }
 
 for (var n of fibonacci) {
-  // truncate the sequence at 1000
+  // 1000 초과 시 중단
   if (n > 1000)
     break;
   console.log(n);
 }
 ```
 
-The generator interface is (using [TypeScript](http://typescriptlang.org) type syntax for exposition only):
+([타입스크립트](http://typescriptlang.org)에서만 사용되는 표현식 타입 구문) 제너레이터 인터페이스는 다음과 같다.
+
 
 ```TypeScript
 interface Generator extends Iterator {
@@ -292,7 +294,7 @@ interface Generator extends Iterator {
 }
 ```
 
-More info: [MDN Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+더보기: [MDN Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
 ### Unicode
 Non-breaking additions to support full Unicode, including new Unicode literal form in strings and new RegExp `u` mode to handle code points, as well as new APIs to process strings at the 21bit code points level.  These additions support building global apps in JavaScript.
