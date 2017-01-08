@@ -568,8 +568,8 @@ Two new numeric literal forms are added for binary (`b`) and octal (`o`).
 0o767 === 503 // true
 ```
 
-### Promises
-Promises are a library for asynchronous programming.  Promises are a first class representation of a value that may be made available in the future.  Promises are used in many existing JavaScript libraries.
+### 프로미스
+프로미스는 비동기 프로그래밍을 위한 라이브러리다. 프로미스는 미래에 사용할 수 있는 값의 일급 표현이다. 프로미스는 현존하는 많은 자바스크립트 라이브러리에 사용되고 있다.
 
 ```JavaScript
 function timeout(duration = 0) {
@@ -587,7 +587,7 @@ var p = timeout(1000).then(() => {
 })
 ```
 
-More info: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+더보기: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ### Reflect API
 Full reflection API exposing the runtime-level meta-operations on objects.  This is effectively the inverse of the Proxy API, and allows making calls corresponding to the same meta-operations as the proxy traps.  Especially useful for implementing proxies.
