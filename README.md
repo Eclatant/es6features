@@ -469,14 +469,14 @@ var handler =
 
 더보기: [MDN Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
-### Symbols
-Symbols enable access control for object state.  Symbols allow properties to be keyed by either `string` (as in ES5) or `symbol`.  Symbols are a new primitive type. Optional `description` parameter used in debugging - but is not part of identity.  Symbols are unique (like gensym), but not private since they are exposed via reflection features like `Object.getOwnPropertySymbols`.
+### 심볼
+심볼은 객체 상태의 접근 제어를 가능하게 해준다. 심볼을 사용하면 객체의 속성으로 ES5에서의 `string` 혹은 `symbol`로 입력할 수 있다  심볼은 새로운 원시 타입이다. 추가 `description` 매개변수는 심볼의 디버깅에 사용될 뿐, 심볼에 대한 접근이나 기능이 아니다. 심볼은 gensym와 같이 유일한 값 하지만, `Object.getOwnPropertySymbols`와 같은 리플렉션 기능을 통해 외부에 노출되어 있기 때문에 private 하지는 않다.
 
 
 ```JavaScript
 var MyClass = (function() {
 
-  // module scoped symbol
+  // 모듈 안에서만 접근 가능한 심볼
   var key = Symbol("key");
 
   function MyClass(privateData) {
@@ -496,7 +496,7 @@ var c = new MyClass("hello")
 c["key"] === undefined
 ```
 
-More info: [MDN Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+더보기: [MDN Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
 ### Subclassable Built-ins
 In ES6, built-ins like `Array`, `Date` and DOM `Element`s can be subclassed.
