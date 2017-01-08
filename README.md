@@ -594,7 +594,7 @@ More info: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 더보기: [MDN Reflect](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 
 ### Tail Calls
-꼬리 위치에서 호출이 스택을 무한대로 생성되지 않게 보장해준다. 무제한 입력에도 재귀 알고리즘을 안전하게 해준다.
+꼬리 호출이 스택을 무한대로 생성되지 않게 보장해준다. 무제한 입력에도 재귀 알고리즘을 안전하게 해준다.
 
 ```JavaScript
 function factorial(n, acc = 1) {
