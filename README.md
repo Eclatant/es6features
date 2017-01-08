@@ -416,11 +416,11 @@ ws.add({ data: 42 });
 
 더보기: [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set), [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 
-### Proxies
-Proxies enable creation of objects with the full range of behaviors available to host objects.  Can be used for interception, object virtualization, logging/profiling, etc.
+### 프록시
+프록시는 호스트 객체에 있는  모든 것을 사용할 수 있는 객체를 만들 수 있게 해준다. 프록시는 가로채기, 객체 가상화, 로깅/프로파일링 등에 사용된다.
 
 ```JavaScript
-// Proxying a normal object
+// 정상적인 객체 프록시
 var target = {};
 var handler = {
   get: function (receiver, name) {
@@ -433,7 +433,7 @@ p.world === 'Hello, world!';
 ```
 
 ```JavaScript
-// Proxying a function object
+// 정상적인 함수 프록시
 var target = function () { return 'I am the target'; };
 var handler = {
   apply: function (receiver, ...args) {
@@ -445,7 +445,7 @@ var p = new Proxy(target, handler);
 p() === 'I am the proxy';
 ```
 
-There are traps available for all of the runtime-level meta-operations:
+모든 런타임 단계의 메타 설정에 사용할 수 있는 트랩들이 있다.
 
 ```JavaScript
 var handler =
@@ -467,7 +467,7 @@ var handler =
 }
 ```
 
-More info: [MDN Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+더보기: [MDN Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 ### Symbols
 Symbols enable access control for object state.  Symbols allow properties to be keyed by either `string` (as in ES5) or `symbol`.  Symbols are a new primitive type. Optional `description` parameter used in debugging - but is not part of identity.  Symbols are unique (like gensym), but not private since they are exposed via reflection features like `Object.getOwnPropertySymbols`.
