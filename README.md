@@ -498,17 +498,17 @@ c["key"] === undefined
 
 더보기: [MDN Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
-### Subclassable Built-ins
-In ES6, built-ins like `Array`, `Date` and DOM `Element`s can be subclassed.
+### 내장 객체의 서브클래스화
+ES6에서는 `Array`, `Date`, 돔 `Element`와 같은 내장 객체를 서브클래스화 할 수 있다. 
 
-Object construction for a function named `Ctor` now uses two-phases (both virtually dispatched):
-- Call `Ctor[@@create]` to allocate the object, installing any special behavior
-- Invoke constructor on new instance to initialize
+`Ctor`라는 이름의 함수 객체 생성은 이제 2단계를 사용한다. (모두 가상으로 실행)
+- 객체 할당을 위해 `Ctor[@@create]`를 호출하고, 해당 객체에 특별 속성을 설치한다.
+- 새 인스턴스에서 생성자를 실행해서 초기화한다.
 
-The known `@@create` symbol is available via `Symbol.create`.  Built-ins now expose their `@@create` explicitly.
+`@@create` 심볼은 `Symbol.create`을 통해 사용할 수 있다. 이제 내장 객체는 `@@create`를 명시적으로 노출하게 된다.
 
 ```JavaScript
-// Pseudo-code of Array
+// Array 클래스의 슈도 코드
 class Array {
     constructor(...args) { /* ... */ }
     static [Symbol.create]() {
@@ -517,14 +517,14 @@ class Array {
     }
 }
 
-// User code of Array subclass
+// Array 서브클래스의 사용자 코드
 class MyArray extends Array {
     constructor(...args) { super(...args); }
 }
 
-// Two-phase 'new':
-// 1) Call @@create to allocate object
-// 2) Invoke constructor on new instance
+// 'new'의 2단계:
+// 1) 객체 할당을 위한 @@create 호출
+// 2) 새로운 인스턴스에서의 생성자 실행
 var arr = new MyArray();
 arr[1] = 12;
 arr.length == 2
