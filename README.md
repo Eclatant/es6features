@@ -216,8 +216,8 @@ function f() {
 
 More MDN info: [let statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
-### Iterators + For..Of
-Iterator objects enable custom iteration like CLR IEnumerable or Java Iterable.  Generalize `for..in` to custom iterator-based iteration with `for..of`.  Don’t require realizing an array, enabling lazy design patterns like LINQ.
+### 이터레이터 + For..Of
+이터레이터 객체는 공통 언어 런타임(Common Language Runtime, CLR)에서의 IEnumerable, 자바에서의 Iterable와 같은 사용자 지정 반복을 가능하게 해준다. 기존 `for..in`으로 작성했던 코드를 `for..of`를 통해 커스텀 이터레이터 기반의 이터레이션으로 일반화 할 수 있다. 반복자를 위한 배열을 구현할 필요가 없고, LINQ와 같은 게으른 디자인 패턴을 사용할 수 있습니다. 
 
 ```JavaScript
 let fibonacci = {
@@ -233,14 +233,15 @@ let fibonacci = {
 }
 
 for (var n of fibonacci) {
-  // truncate the sequence at 1000
+  // 1000 초과 시 중단
   if (n > 1000)
     break;
   console.log(n);
 }
 ```
 
-Iteration is based on these duck-typed interfaces (using [TypeScript](http://typescriptlang.org) type syntax for exposition only):
+([타입스크립트](http://typescriptlang.org)에서만 사용되는 표현식 타입 구문) 이터레이션은 덕 타입 인터페이스 기반이다.
+
 ```TypeScript
 interface IteratorResult {
   done: boolean;
@@ -254,7 +255,7 @@ interface Iterable {
 }
 ```
 
-More info: [MDN for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+더보기: [MDN for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
 ### Generators
 Generators simplify iterator-authoring using `function*` and `yield`.  A function declared as function* returns a Generator instance.  Generators are subtypes of iterators which include additional  `next` and `throw`.  These enable values to flow back into the generator, so `yield` is an expression form which returns a value (or throws).
