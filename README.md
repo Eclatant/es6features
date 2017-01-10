@@ -512,8 +512,8 @@ ES6에서는 `Array`, `Date`, 돔 `Element`와 같은 내장 객체를 서브클
 class Array {
     constructor(...args) { /* ... */ }
     static [Symbol.create]() {
-        // Install special [[DefineOwnProperty]]
-        // to magically update 'length'
+        // 'length' 값을 업데이트하기 위해 
+        // 특별한 [[DefineOwnProperty]]를 설치
     }
 }
 
