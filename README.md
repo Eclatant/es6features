@@ -30,7 +30,7 @@ ES6는 아래의 새로운 기능을 포함하고 있다.
 
 ## ECMAScript 6 Features
 
-### 화살표 함수
+### Arrows
 화살표 함수는 `=>` 문법을 이용해서 함수를 짧게 표현한다. C#, 자바8, 커피스크립트와 비슷한 문법을 사용한다. 함수 표현식 본문 뿐만아니라 명령문 블록 본문도 지원한다. 일반 함수와 달리 화살표 함수는 자신을 둘러싼 어휘적 this를 사용한다.
 
 ```JavaScript
@@ -89,7 +89,7 @@ class SkinnedMesh extends THREE.Mesh {
 
 더보기: [MDN Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
 
-### 개선된 객체 리터럴
+### Enhanced Object Literals
 객체 리터럴은 객체 생성시 프로토타입을 설정할 수 있다. `foo: foo` 형식으로 할당할 때는 `foo`만 적어도 된다. 메소드를 정의할 수 있고 슈퍼를 호출할 수 있다. 함수식으로 프로퍼티 이름 계산이 가능하다. 또한 객체 리터럴과 클래스 정의는 비슷하기 때문에 객체기반 설계의 장점을 얻을 수 있다.
 
 ```JavaScript
@@ -110,7 +110,7 @@ var obj = {
 
 더보기: [MDN Grammar and types: Object literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Object_literals)
 
-### 템플릿 문자열
+### Template Strings
 템플릿 문자열을 이용하면 손쉽게 문자열을 만들수 있다. 펄, 파이썬의 문자열 인터폴레이션 기능과 비슷하다. 인젝션 공격을 차단하거나 고수준 데이터 구조를 유지하는 문자열을 만들기 위해 태그를 추가하여 만들 수 있다.
 
 ```JavaScript
@@ -167,7 +167,7 @@ a === 1;
 
 더보기: [MDN Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
-### 파라메터 기본값, 나머지 파라매터, 펼침 연산자
+### Default + Rest + Spread
 함수를 정의할 때 파라매터의 기본값을 지정할 수 있다. 나머지 파라매터는 배열로 전달된다. 그리고 arguments 대신 사용한다. 함수를 호출할 때 펼침 연산자를 이용하면 배열의 각 배열 요소를 파라매터로 전달할 수 있다.
 
 ```JavaScript
@@ -295,7 +295,7 @@ interface Generator extends Iterator {
 
 더보기: [MDN Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
-### 유니코드
+### Unicode
 완전한 유니코드를 지원한다. 코드 포인트를 처리할 수 있는 유니코드 리터럴과 정규표현식의 `u` 옵션이 있다. 21비트 코드 포인트 수준에서 문자열을 처리하는 새로운 API도 있다. 이러한 추가 기능으로 글로벌 어플리케이션 개발을 지원한다.
 
 ```JavaScript
@@ -529,7 +529,7 @@ arr[1] = 12;
 arr.length == 2
 ```
 
-### 수학, 숫자, 문자열, 배열, 객체 API
+### Math + Number + String + Array + Object APIs		
 수학 라이브러리, 배열과 문자열 헬퍼 함수, 객체 복사를 위한 Object.assign() 함수가 있다.
 
 ```JavaScript
@@ -559,7 +559,7 @@ Object.assign(Point, { origin: new Point(0,0) })
 
 더보기: [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number), [Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math), [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [Array.of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of), [Array.prototype.copyWithin](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin), [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
-### 2진수와 8진수
+### Binary and Octal Literals		
 이진수(`b`)와 8진수(`o`)를 위해 숫자 리터럴 두 개 추가되었다.
 
 ```JavaScript
