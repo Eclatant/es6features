@@ -216,7 +216,7 @@ function f() {
 
 More MDN info: [let statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
-### 이터레이터 + For..Of
+### Iterators + for..of
 이터레이터 객체는 공통 언어 런타임(Common Language Runtime, CLR)에서의 IEnumerable, 자바에서의 Iterable과 같은 사용자 지정 반복을 가능하게 해준다. 기존 `for..in`으로 작성했던 코드를 `for..of`를 통해 커스텀 이터레이터 기반의 이터레이션으로 일반화 할 수 있다. 반복자를 위한 배열을 구현할 필요가 없고, LINQ와 같은 게으른 디자인 패턴을 사용할 수 있다.
 
 ```JavaScript
@@ -257,7 +257,7 @@ interface Iterable {
 
 더보기: [MDN for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
-### 제너레이터
+### generators
 제너레이터는 `function*` 와 `yield`를 사용하여 이터레이터 작성을 단순화 한다. function*로 정의된 함수는 제너레이터 인스턴스를 반환한다. 제너레이터는 `next` 와 `throw`를 포함하고 있는 이터레이터의 하위 유형이다.
 이것들은 값을 제너레이터로 다시 되돌릴 수 있게 해준다. 그래서 `yield`는 값을 반환하는 표현식이다.
 
@@ -416,7 +416,7 @@ ws.add({ data: 42 });
 
 더보기: [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set), [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 
-### 프록시
+### proxies
 프록시는 호스트 객체에 있는  모든 것을 사용할 수 있는 객체를 만들 수 있게 해준다. 프록시는 가로채기, 객체 가상화, 로깅/프로파일링 등에 사용된다.
 
 ```JavaScript
@@ -469,7 +469,7 @@ var handler =
 
 더보기: [MDN Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
-### 심볼
+### symbols
 심볼은 객체 상태의 접근 제어를 가능하게 해준다. 심볼을 사용하면 객체의 속성으로 ES5에서의 `string` 혹은 `symbol`로 입력할 수 있다  심볼은 새로운 원시 타입이다. 추가 `description` 매개변수는 심볼의 디버깅에 사용될 뿐, 심볼에 대한 접근이나 기능이 아니다. 심볼은 gensym와 같이 유일한 값 하지만, `Object.getOwnPropertySymbols`와 같은 리플렉션 기능을 통해 외부에 노출되어 있기 때문에 private 하지는 않다.
 
 
@@ -498,7 +498,7 @@ c["key"] === undefined
 
 더보기: [MDN Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
-### 내장 객체의 서브클래스화
+### subclassable built-ins
 ES6에서는 `Array`, `Date`, 돔 `Element`와 같은 내장 객체를 서브클래스화 할 수 있다. 
 
 `Ctor`라는 이름의 함수 객체 생성은 이제 2단계를 사용한다. (모두 가상으로 실행)
@@ -568,7 +568,7 @@ Two new numeric literal forms are added for binary (`b`) and octal (`o`).
 0o767 === 503 // true
 ```
 
-### 프로미스
+### promises
 프로미스는 비동기 프로그래밍을 위한 라이브러리다. 프로미스는 미래에 사용할 수 있는 값의 일급 표현이다. 프로미스는 현존하는 많은 자바스크립트 라이브러리에 사용되고 있다.
 
 ```JavaScript
