@@ -215,8 +215,8 @@ function f() {
 
 더보기: [let statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), [const statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
-### Iterators + For..Of
-Iterator objects enable custom iteration like CLR IEnumerable or Java Iterable.  Generalize `for..in` to custom iterator-based iteration with `for..of`.  Don’t require realizing an array, enabling lazy design patterns like LINQ.
+### 이터레이터 + For..Of
+이터레이터 객체는 공통 언어 런타임(Common Language Runtime, CLR)에서의 IEnumerable, 자바에서의 Iterable과 같은 사용자 지정 반복을 가능하게 해준다. 기존 `for..in`으로 작성했던 코드를 `for..of`를 통해 커스텀 이터레이터 기반의 이터레이션으로 일반화 할 수 있다. 반복자를 위한 배열을 구현할 필요가 없고, LINQ와 같은 게으른 디자인 패턴을 사용할 수 있다.
 
 ```JavaScript
 let fibonacci = {
@@ -232,14 +232,15 @@ let fibonacci = {
 }
 
 for (var n of fibonacci) {
-  // truncate the sequence at 1000
+  // 1000 초과 시 중단
   if (n > 1000)
     break;
   console.log(n);
 }
 ```
 
-Iteration is based on these duck-typed interfaces (using [TypeScript](http://typescriptlang.org) type syntax for exposition only):
+([타입스크립트](http://typescriptlang.org)에서만 사용되는 표현식 타입 구문) 이터레이션은 덕 타입 인터페이스 기반이다.
+
 ```TypeScript
 interface IteratorResult {
   done: boolean;
@@ -253,12 +254,13 @@ interface Iterable {
 }
 ```
 
-More info: [MDN for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+더보기: [MDN for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 
-### Generators
-Generators simplify iterator-authoring using `function*` and `yield`.  A function declared as function* returns a Generator instance.  Generators are subtypes of iterators which include additional  `next` and `throw`.  These enable values to flow back into the generator, so `yield` is an expression form which returns a value (or throws).
+### 제너레이터
+제너레이터는 `function*` 와 `yield`를 사용하여 이터레이터 작성을 단순화 한다. function*로 정의된 함수는 제너레이터 인스턴스를 반환한다. 제너레이터는 `next` 와 `throw`를 포함하고 있는 이터레이터의 하위 유형이다.
+이것들은 값을 제너레이터로 다시 되돌릴 수 있게 해준다. 그래서 `yield`는 값을 반환하는 표현식이다.
 
-Note: Can also be used to enable ‘await’-like async programming, see also ES7 `await` proposal.
+참고: ‘await’와 같은 비동기 프로그래밍을 활성화하는 데 사용할 수 있다. ES7의 `await` 제안을 참조하자.
 
 ```JavaScript
 var fibonacci = {
@@ -274,14 +276,15 @@ var fibonacci = {
 }
 
 for (var n of fibonacci) {
-  // truncate the sequence at 1000
+  // 1000 초과 시 중단
   if (n > 1000)
     break;
   console.log(n);
 }
 ```
 
-The generator interface is (using [TypeScript](http://typescriptlang.org) type syntax for exposition only):
+([타입스크립트](http://typescriptlang.org)에서만 사용되는 표현식 타입 구문) 제너레이터 인터페이스는 다음과 같다.
+
 
 ```TypeScript
 interface Generator extends Iterator {
@@ -290,7 +293,7 @@ interface Generator extends Iterator {
 }
 ```
 
-More info: [MDN Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
+더보기: [MDN Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
 ### 유니코드
 완전한 유니코드를 지원한다. 코드 포인트를 처리할 수 있는 유니코드 리터럴과 정규표현식의 `u` 옵션이 있다. 21비트 코드 포인트 수준에서 문자열을 처리하는 새로운 API도 있다. 이러한 추가 기능으로 글로벌 어플리케이션 개발을 지원한다.
@@ -383,7 +386,8 @@ System.set('jquery', Module({$: $})); // 경고 : 아직 완료되지 않았다.
 ```
 
 ### Map + Set + WeakMap + WeakSet
-Efficient data structures for common algorithms.  WeakMaps provides leak-free object-key’d side tables.
+공통 알고리즘을 위한 효율적인 데이터 구조. WeakMaps은 열은 키 객체 참조를 제공해준다. 그래서 가비지 컬랙션을 통해 메모리 누수를 막을 수 있다.
+
 
 ```JavaScript
 // Sets
@@ -406,16 +410,16 @@ wm.size === undefined
 // Weak Sets
 var ws = new WeakSet();
 ws.add({ data: 42 });
-// Because the added object has no other references, it will not be held in the set
+// 추가된 객체에는 다른 참조가 없기 때문에 set에 포함되지 않는다.
 ```
 
-More MDN info: [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set), [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+더보기: [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set), [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap), [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 
-### Proxies
-Proxies enable creation of objects with the full range of behaviors available to host objects.  Can be used for interception, object virtualization, logging/profiling, etc.
+### 프록시
+프록시는 호스트 객체에 있는  모든 것을 사용할 수 있는 객체를 만들 수 있게 해준다. 프록시는 가로채기, 객체 가상화, 로깅/프로파일링 등에 사용된다.
 
 ```JavaScript
-// Proxying a normal object
+// 정상적인 객체 프록시
 var target = {};
 var handler = {
   get: function (receiver, name) {
@@ -428,7 +432,7 @@ p.world === 'Hello, world!';
 ```
 
 ```JavaScript
-// Proxying a function object
+// 정상적인 함수 프록시
 var target = function () { return 'I am the target'; };
 var handler = {
   apply: function (receiver, ...args) {
@@ -440,7 +444,7 @@ var p = new Proxy(target, handler);
 p() === 'I am the proxy';
 ```
 
-There are traps available for all of the runtime-level meta-operations:
+모든 런타임 단계의 메타 설정에 사용할 수 있는 트랩들이 있다.
 
 ```JavaScript
 var handler =
@@ -462,16 +466,16 @@ var handler =
 }
 ```
 
-More info: [MDN Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+더보기: [MDN Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
-### Symbols
-Symbols enable access control for object state.  Symbols allow properties to be keyed by either `string` (as in ES5) or `symbol`.  Symbols are a new primitive type. Optional `description` parameter used in debugging - but is not part of identity.  Symbols are unique (like gensym), but not private since they are exposed via reflection features like `Object.getOwnPropertySymbols`.
+### 심볼
+심볼은 객체 상태의 접근 제어를 가능하게 해준다. 심볼을 사용하면 객체의 속성으로 ES5에서의 `string` 혹은 `symbol`로 입력할 수 있다  심볼은 새로운 원시 타입이다. 추가 `description` 매개변수는 심볼의 디버깅에 사용될 뿐, 심볼에 대한 접근이나 기능이 아니다. 심볼은 gensym와 같이 유일한 값 하지만, `Object.getOwnPropertySymbols`와 같은 리플렉션 기능을 통해 외부에 노출되어 있기 때문에 private 하지는 않다.
 
 
 ```JavaScript
 var MyClass = (function() {
 
-  // module scoped symbol
+  // 모듈 안에서만 접근 가능한 심볼
   var key = Symbol("key");
 
   function MyClass(privateData) {
@@ -491,35 +495,35 @@ var c = new MyClass("hello")
 c["key"] === undefined
 ```
 
-More info: [MDN Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+더보기: [MDN Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
-### Subclassable Built-ins
-In ES6, built-ins like `Array`, `Date` and DOM `Element`s can be subclassed.
+### 내장 객체의 서브클래스화
+ES6에서는 `Array`, `Date`, 돔 `Element`와 같은 내장 객체를 서브클래스화 할 수 있다. 
 
-Object construction for a function named `Ctor` now uses two-phases (both virtually dispatched):
-- Call `Ctor[@@create]` to allocate the object, installing any special behavior
-- Invoke constructor on new instance to initialize
+`Ctor`라는 이름의 함수 객체 생성은 이제 2단계를 사용한다. (모두 가상으로 실행)
+- 객체 할당을 위해 `Ctor[@@create]`를 호출하고, 해당 객체에 특별 속성을 설치한다.
+- 새 인스턴스에서 생성자를 실행해서 초기화한다.
 
-The known `@@create` symbol is available via `Symbol.create`.  Built-ins now expose their `@@create` explicitly.
+`@@create` 심볼은 `Symbol.create`을 통해 사용할 수 있다. 이제 내장 객체는 `@@create`를 명시적으로 노출하게 된다.
 
 ```JavaScript
-// Pseudo-code of Array
+// Array 클래스의 슈도 코드
 class Array {
     constructor(...args) { /* ... */ }
     static [Symbol.create]() {
-        // Install special [[DefineOwnProperty]]
-        // to magically update 'length'
+        // 'length' 값을 업데이트하기 위해 
+        // 특별한 [[DefineOwnProperty]]를 설치
     }
 }
 
-// User code of Array subclass
+// Array 서브클래스의 사용자 코드
 class MyArray extends Array {
     constructor(...args) { super(...args); }
 }
 
-// Two-phase 'new':
-// 1) Call @@create to allocate object
-// 2) Invoke constructor on new instance
+// 'new'의 2단계:
+// 1) 객체 할당을 위한 @@create 호출
+// 2) 새로운 인스턴스에서의 생성자 실행
 var arr = new MyArray();
 arr[1] = 12;
 arr.length == 2
@@ -563,8 +567,8 @@ Object.assign(Point, { origin: new Point(0,0) })
 0o767 === 503 // true
 ```
 
-### Promises
-Promises are a library for asynchronous programming.  Promises are a first class representation of a value that may be made available in the future.  Promises are used in many existing JavaScript libraries.
+### 프로미스
+프로미스는 비동기 프로그래밍을 위한 라이브러리다. 프로미스는 미래에 사용할 수 있는 값의 일급 표현이다. 프로미스는 현존하는 많은 자바스크립트 라이브러리에 사용되고 있다.
 
 ```JavaScript
 function timeout(duration = 0) {
@@ -582,7 +586,7 @@ var p = timeout(1000).then(() => {
 })
 ```
 
-More info: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+더보기: [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ### Reflect API
 완전한 reflection API는 런타임 단계에서 객체의 메타 작업을 보여준다. 실제로 Proxy API의 반대이며, 프록시 트랩과 동일한 메타작업을 하는 메서드 호출을 허용한다. 특히 프록시를 구현할 때 유용하다.
